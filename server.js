@@ -23,7 +23,23 @@ app.get('/', function (req, res) {
 
 // helper route fetches source HTML given URL as parameter
 app.get('/source', function (req, res) {
-    res.send('there\'s such a difference, between us, and a million miles');
+
+    var url = req.query.url;
+    var source = '';
+
+    http.get(url, function (response) {
+
+        // aggregate chunks onto source
+        response.on('data', function (chunk) {
+            source += chunk;
+        });
+
+        // send source when complete
+        response.on('end', function () {
+            res.send(source);
+        });
+    })
+
 });
 
 // catch any other routes as errors
