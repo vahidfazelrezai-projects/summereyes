@@ -16,7 +16,7 @@ gulp.task('install', function () {
 // copy files from node_modules to lib folder
 gulp.task('lib', function () {
     gulp.src('node_modules/materialize-css/dist/**/*')
-        .pipe(gulp.dest('static/assets/lib/materialize/'));
+        .pipe(gulp.dest('static/assets/lib/materialize-css/'));
 
     gulp.src('node_modules/jquery/dist/**/*')
         .pipe(gulp.dest('static/assets/lib/jquery/'));
