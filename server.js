@@ -27,7 +27,7 @@ app.get('/source', function (req, res) {
     var url = req.query.url;
     var source = '';
 
-    http.get(url, function (response) {
+    var request = http.get(url, function (response) {
 
         // aggregate chunks onto source
         response.on('data', function (chunk) {
@@ -36,9 +36,16 @@ app.get('/source', function (req, res) {
 
         // send source when complete
         response.on('end', function () {
+            res.status(200);
             res.send(source);
         });
     })
+
+    // send error message if request to given url fails
+    request.on('error', function(e) {
+        res.status(404);
+        res.send('Error: page could not be fetched.');
+    });
 
 });
 
