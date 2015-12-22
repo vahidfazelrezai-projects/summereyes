@@ -16,8 +16,14 @@
     "url": "https://github.com/vfazel/summereyes/issues"
   },
   "homepage": "https://github.com/vfazel/summereyes",
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-sass": "^2.1.1"
+  },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "jquery": "^2.1.4",
+    "materialize-css": "^0.97.5"
   }
 }
