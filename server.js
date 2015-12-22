@@ -1,20 +1,33 @@
+// import packages
 var express = require('express');
 var fs = require('fs');
-var app = require('express')();
+var path = require('path');
+var http = require('http');
+
+// initialize app
+var app = express();
 
 // set static folder
-// app.use(express.static(__dirname + '/client')); // tbd
+app.use(express.static(__dirname + '/static'));
 
-// view engine
+// configure to serve raw html files
 app.set('view engine', 'html');
 app.engine('html', function (path, options, callback) {
     fs.readFile(path, 'utf-8', callback);
 });
 
-// routes
+// main route serves index.html
 app.get('/', function (req, res) {
-    res.send('hello from the other side');
-})
+    res.sendFile(path.join(__dirname, '/static/index.html'));
+});
 
+// helper route fetches source HTML given URL as parameter
+app.get('/source', function (req, res) {
+    res.send('there\'s such a difference, between us, and a million miles');
+});
+
+// catch any other routes as errors
 app.use(function (err, req, res, next) { res.status(err.status || 500); });
+
+// start listening for requests
 app.listen(process.env.PORT || 5000);
