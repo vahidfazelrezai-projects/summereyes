@@ -1,0 +1,23 @@
+{
+  "name": "summer-eyes",
+  "version": "1.0.0",
+  "description": "Get a brighter view of a webpage. Summer Eyes summarizes the frequencies of HTML tags and highlights occurrences in the source code for a given URL.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vfazel/summereyes"
+  },
+  "author": "Vahid Fazel-Rezai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vfazel/summereyes/issues"
+  },
+  "homepage": "https://github.com/vfazel/summereyes",
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
