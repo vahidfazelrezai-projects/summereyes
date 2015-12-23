@@ -50,10 +50,10 @@ var endLoad = function () {
     $('#source-preloader').hide();
 }
 
-//
+
 var displaySource = function (source) {
 
-    $('#source').html(escape(source));
+    $('#source').html(source);
 
     // Materialize.showStaggeredList('#summary-list'); // transition
 }
