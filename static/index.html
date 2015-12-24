@@ -37,7 +37,7 @@
     <body>
 
         <div id="page-container">
-            <div id="input-row" class="row">
+            <div class="row">
                 <div class="col s12">
                     <div class="card">
                         <div class="card-content row">
@@ -54,69 +54,34 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+
                 <div class="col s12">
                     <div class="card">
                         <div class="card-content">
-                            <div id="source">
+                            <div id="tags-preloader" class="progress">
+                                <div class="indeterminate"></div>
+                            </div>
+                            <div id="tags">
+                                <!-- filled dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div id="source-preloader" class="progress">
+                                <div class="indeterminate"></div>
+                            </div>
+                            <div id="source">
+                                <!-- filled dynamically -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <!-- <div class="container">
-            <div class="row">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="input-field col s12">
-                            <label for="url">Enter a URL:</label>
-                            <input id="url" placeholder="https://..." type="text">
-                        </div>
-                        <div id="go" class="btn waves-effect waves-light">
-                            GO
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m12 l3">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title">Tags</span>
-                        </div>
-                    </div>
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h5>Summary</h4></li>
-                    </ul>
-                </div>
-                <div class="col s12 m12 l9">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title">Source</span>
-
-                            <div id="source">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="summary-preloader" class="progress">
-                <div class="indeterminate"></div>
-            </div>
-
-            <div id="source-preloader" class="progress">
-                <div class="indeterminate"></div>
-            </div>
-
-        </div> -->
-
     </body>
 
     <!-- scripts -->

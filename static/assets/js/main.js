@@ -35,14 +35,14 @@ $(document).ready(function () {
 
 // display preloaders
 var startLoad = function () {
-    $('#summary-preloader').show();
+    $('#tags-preloader').show();
     $('#source-preloader').show();
     alert('startload');
 }
 
 // hide preloaders
 var endLoad = function () {
-    $('#summary-preloader').hide();
+    $('#tags-preloader').hide();
     $('#source-preloader').hide();
     alert('endload');
 }
@@ -51,13 +51,16 @@ var endLoad = function () {
 var displaySource = function (source) {
 
     var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
-        if (error)
-            Materialize.toast('Error: Page could not be parsed. Please try a different URL.', 3000);
-        else
+        if (error) {
+            Materialize.toast('Error: Page could not be parsed. Please try again.', 3000);
+            endLoad();
+        } else {
             tagList = [];
             string = makePreString(dom, tagList);
             $('#source').html(string);
-            console.log(tagList);
+            displayTags(tagList);
+            endLoad();
+        }
     });
 
     var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
@@ -78,7 +81,7 @@ var makePreString = function (dom, tagList) {
             string += e.raw;
 
         } else if (e.type === 'directive') {
-            string += '<pre>' + '&lt;' + e.raw + '&gt;' + '</pre>';
+            string += '<pre>' + '&lt;' + e.raw + '&gt;' + '</pre><br>'; // not sure why new line needed
 
         } else if (e.type === 'comment') {
             string += '<pre>' + '&lt;!--' + e.raw + '--&gt;' + '</pre>';
@@ -112,4 +115,28 @@ var makePreString = function (dom, tagList) {
 
 var sanitize = function (string) {
     return string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+var displayTags = function (tagList) {
+
+    $('<span>Tags: </span>').appendTo('#tags');
+
+    var uniqueTags = tagList.filter(function (tag, index, list) {
+        return (index === list.indexOf(tag));
+    });
+
+    uniqueTags.forEach(function (tag) {
+        var count = tagList.filter(function (searchTag) {
+            return (tag === searchTag);
+        }).length;
+
+        var tagDiv = $('<div class="chip"></div>').html(tag + ' (' + count + ')');
+        tagDiv.click(function () { highlightTags(tag); });
+        tagDiv.appendTo('#tags');
+    });
+}
+
+var highlightTags = function (tag) {
+    console.log('trying to highlight ' + tag);
+    $('#source').children('.tag-' + tag).css('color', 'red');
 }

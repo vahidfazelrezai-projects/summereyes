@@ -4,12 +4,39 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
-#input-row {
+#page-container {
     padding-top: 3vh;
-    .btn {
-        height: 100%;
+    max-height: 100vh;
+}
+
+#source {
+    font-size: .8em;
+
+    pre {
+        display: inline;
     }
+
+    .higlight {
+        color: red;
+    }
+}
+
+#tags {
+    .chip {
+        margin-right: 7px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        cursor: pointer;
+    }
+}
+
+.card-content {
+    overflow: scroll;
+}
+
+.progress {
+    display: none;
 }
