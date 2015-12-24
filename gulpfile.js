@@ -20,6 +20,9 @@ gulp.task('lib', function () {
 
     gulp.src('node_modules/jquery/dist/**/*')
         .pipe(gulp.dest('static/assets/lib/jquery/'));
+
+    gulp.src('node_modules/htmlparser/lib/**/*')
+        .pipe(gulp.dest('static/assets/lib/htmlparser/'));
 });
 
 // run npm install and copy potentially updated libraries
