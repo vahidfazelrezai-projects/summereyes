@@ -18,74 +18,79 @@ $link-color: color("light-blue", "darken-1") !default;
 
 @import "../../../node_modules/materialize-css/sass/materialize";
 
-
+// background image
 body {
     background-image: url('/assets/img/background.jpg'); // image from: http://www.publicdomainpictures.net/view-image.php?image=21752
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    // overflow: hidden;
 }
 
 #page-container {
-    padding-top: 1vh;
-    max-height: 100vh;
+    padding-top: 5px;
 
-        #input-card {
-            padding: 10px;
-            display: flex;
+    * {
+        max-height: 100%;
+    }
 
-            #url {
-                margin: 0;
-                padding-left: 10px;
-                border: none;
-                box-shadow: none;
-                flex: auto;
+    .row {
+        margin: 0;
+    }
+
+    #input-card {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+
+        #url {
+            margin: 0;
+            padding-left: 10px;
+            border: none;
+            box-shadow: none;
+        }
+
+        #go {
+            margin: 5px;
+        }
+    }
+
+    #result-card {
+        display: none;
+
+        #preloader {
+            margin-top: 15px;
+        }
+
+        #tags {
+            max-height: 30vh;
+            overflow: scroll;
+
+            .chip {
+                -webkit-user-select: none; /* Chrome/Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+ */
+                cursor: pointer;
+                margin-right: 7px;
+                margin-top: 3px;
+                margin-bottom: 3px;
             }
 
-            #go {
-                margin: 5px;
-                display: inline-block;
-                flex: auto;
+            .selected {
+                background-color: $primary-color;
+                color: white;
             }
         }
 
-}
+        #divider {
+            margin-top: 10px;
+            border-bottom: solid 1px grey;
+        }
 
-#source {
-    font-size: .8em;
-
-    pre {
-        display: inline;
+        #source-container {
+            font-size: .8em;
+            max-height: 60vh;
+            overflow: scroll;
+        }
     }
-}
-
-#tags {
-    .chip {
-        -webkit-user-select: none; /* Chrome/Safari */
-        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* IE10+ */
-        margin-right: 7px;
-        margin-top: 3px;
-        margin-bottom: 3px;
-        cursor: pointer;
-    }
-
-    .selected {
-        background-color: $primary-color;
-        color: white;
-    }
-}
-
-.card-content {
-    overflow: scroll;
-}
-
-.progress {
-    display: none;
-}
-
-.divider {
-    border-bottom: solid 1px grey;
 }
