@@ -31,11 +31,26 @@ body {
 #page-container {
     padding-top: 1vh;
     max-height: 100vh;
-}
 
-input {
-    margin-top: 10px;
-    width: 100%;
+        #input-card {
+            padding: 10px;
+            display: flex;
+
+            #url {
+                margin: 0;
+                padding-left: 10px;
+                border: none;
+                box-shadow: none;
+                flex: auto;
+            }
+
+            #go {
+                margin: 5px;
+                display: inline-block;
+                flex: auto;
+            }
+        }
+
 }
 
 #source {
@@ -69,4 +84,8 @@ input {
 
 .progress {
     display: none;
+}
+
+.divider {
+    border-bottom: solid 1px grey;
 }

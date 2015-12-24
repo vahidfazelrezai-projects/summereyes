@@ -40,6 +40,7 @@ $(document).ready(function () {
 
 // display preloaders
 var startLoad = function () {
+    $('#go').prop('disabled', true);
     $('#tags').empty();
     $('#source').empty();
     $('#tags-preloader').show();
@@ -48,6 +49,7 @@ var startLoad = function () {
 
 // hide preloaders
 var endLoad = function () {
+    $('#go').prop('disabled', false);
     $('#tags-preloader').hide();
     $('#source-preloader').hide();
 }
@@ -128,7 +130,7 @@ var sanitize = function (string) {
 
 var displayTags = function (tagList) {
 
-    $('<span>Tags: </span>').appendTo('#tags');
+    $('<span>Tags: </span>').css('font-size', '1.2em').css('text-transform', 'uppercase').appendTo('#tags');
 
     var uniqueTags = tagList.filter(function (tag, index, list) {
         return (index === list.indexOf(tag));

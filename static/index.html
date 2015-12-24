@@ -5,6 +5,7 @@
         <!-- meta -->
         <meta charset="utf-8">
         <title>Summer Eyes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- favicon...
             image obtained from: https://pixabay.com/en/summer-sun-sunny-sunglasses-happy-157239/
@@ -38,36 +39,23 @@
 
         <div id="page-container">
             <div class="row">
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-content">
-                            <input id="url" type="url" placeholder="Enter a URL and press GO">
-                            <div id="go" class="btn waves-effect waves-light right">
-                                go
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="col s12">
+
+                    <div id="input-card" class="card">
+                        <input id="url" type="url" placeholder="Enter a URL and press GO">
+                        <div id="go" class="btn waves-effect waves-light">go</div>
+                    </div>
+
                     <div class="card">
                         <div class="card-content">
                             <div id="tags-preloader" class="progress">
                                 <div class="indeterminate"></div>
                             </div>
-                            <div id="tags">
+                            <div id="tags"></div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="divider"></div>
 
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div id="source-preloader" class="progress">
-                                <div class="indeterminate"></div>
-                            </div>
                             <pre id="source">
 
                             </pre>
