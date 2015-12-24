@@ -18,6 +18,9 @@ gulp.task('lib', function () {
     gulp.src('node_modules/materialize-css/dist/**/*')
         .pipe(gulp.dest('static/assets/lib/materialize-css/'));
 
+    gulp.src('node_modules/materialize-css/font/**/*')
+        .pipe(gulp.dest('static/assets/font/'));
+
     gulp.src('node_modules/jquery/dist/**/*')
         .pipe(gulp.dest('static/assets/lib/jquery/'));
 

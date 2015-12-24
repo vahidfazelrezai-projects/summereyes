@@ -1,3 +1,24 @@
+// override colors
+@import "../../../node_modules/materialize-css/sass/components/color";
+
+$primary-color: color("deep-orange", "darken-1") !default;
+$primary-color-light: false !default;
+$primary-color-dark: false !default;
+@if not $primary-color-light {
+$primary-color-light: lighten($primary-color, 15%);
+}
+@if not $primary-color-dark {
+$primary-color-dark: darken($primary-color, 15%);
+}
+$secondary-color: color("light-blue", "accent-2") !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+
+$link-color: color("light-blue", "darken-1") !default;
+
+@import "../../../node_modules/materialize-css/sass/materialize";
+
+
 body {
     background-image: url('/assets/img/background.jpg'); // image from: http://www.publicdomainpictures.net/view-image.php?image=21752
     background-position: center;
@@ -8,8 +29,13 @@ body {
 }
 
 #page-container {
-    padding-top: 3vh;
+    padding-top: 1vh;
     max-height: 100vh;
+}
+
+input {
+    margin-top: 10px;
+    width: 100%;
 }
 
 #source {
@@ -18,18 +44,22 @@ body {
     pre {
         display: inline;
     }
-
-    .higlight {
-        color: red;
-    }
 }
 
 #tags {
     .chip {
+        -webkit-user-select: none; /* Chrome/Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
         margin-right: 7px;
         margin-top: 3px;
         margin-bottom: 3px;
         cursor: pointer;
+    }
+
+    .selected {
+        background-color: $primary-color;
+        color: white;
     }
 }
 
